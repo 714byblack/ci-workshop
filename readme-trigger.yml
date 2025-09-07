@@ -1,0 +1,19 @@
+name: Trigger on README.md Change
+
+on:
+  push:
+    paths:
+      - "README.md"   # Trigger เมื่อ push แล้ว README.md ถูกแก้
+  pull_request:
+    paths:
+      - "README.md"   # Trigger เมื่อมี PR ที่แก้ README.md
+
+jobs:
+  run-on-readme-change:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Show message
+        run: echo "🚀 README.md has been modified!"
